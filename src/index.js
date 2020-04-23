@@ -18,8 +18,11 @@ const processData = (inputElement) => {
   const data = inputElement.value;
 
   // get data and split into words by space
-  let processedData = data.split(' ');
-  //console.log(processedData);
+  //let processedData = data.split(/[\n\r\. ]/);
+  let processedData = data.replace(/[\n\r]/g, '\n ').split(' ');
+
+
+  console.log(processedData);
 
   const firstLettersList = processedData.map((word) => {
     const firstLetter = word[0];
@@ -48,17 +51,28 @@ const processData = (inputElement) => {
   //   contentElement.appendChild(letterElement);
   // })
 
+  output.innerHTML = '';
+
   processedData.forEach((word) => {
     const wordElement = document.createElement("span");
     const wordLetterWithColor = lettersWithColors.find((el) => {
       return el.letter === word[0];
     });
-    console.log({word, wordLetterWithColor});
 
     wordElement.innerText = word + ' ';
     wordElement.style.color = wordLetterWithColor.color;
+    wordElement.setAttribute('data-letter', word[0]);
+    wordElement.classList.add('letter-item');
 
-    console.log(wordElement);
+    ['mouseover', 'mouseout'].forEach((event) => {
+      wordElement.addEventListener(event, (e) => {
+        const letter = e.target.getAttribute('data-letter');
+        const sameLetterElements = output.querySelectorAll('[data-letter='+letter+']');
+        sameLetterElements.forEach((el) => {
+          el.classList.toggle('letter-item--active');
+        });
+      })
+    });
 
     output.appendChild(wordElement);
   })

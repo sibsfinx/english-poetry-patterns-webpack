@@ -9,7 +9,7 @@ textarea
   font:
     size: 15px
     family: 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
-  line-height: 1.6
+  line-height: 1.8em
   --webkit-font-smoothing: antialiased
 
 body *
@@ -38,3 +38,14 @@ body *
   background: none
   border: 1px solid rgba(#fff, 0.2)
 
+.letter-item
+  cursor: pointer
+  transition: all 0.2s ease
+  .output:hover &
+    opacity: 0.5
+
+.letter-item--active
+  text-decoration: underline
+  background: #000
+  &, .output:hover &
+    opacity: 1
