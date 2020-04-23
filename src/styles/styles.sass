@@ -7,6 +7,42 @@
 // @import node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins
 
 body
-  background: #111
+  background: lighten(#000, 5%)
+
+body,
+p,
+input,
+textarea
   color: #fff
+  font:
+    size: 15px
+    family: 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+  line-height: 1.6
   --webkit-font-smoothing: antialiased
+
+body *
+  box-sizing: border-box
+
+.app-container
+  display: flex
+  flex-direction: row
+  width: 100%
+  padding: 30px
+
+.app-block
+  flex: 0 0 50%
+  padding: 0 30px
+  display: flex
+  flex-direction: column
+
+.output
+  padding: 10px
+  //border: 1px solid rgba(#fff, 0.2)
+
+.input
+  display: flex
+  flex: 0 0 100%
+  padding: 10px
+  background: none
+  border: 1px solid rgba(#fff, 0.2)
+

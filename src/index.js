@@ -3,8 +3,19 @@ import './styles/styles.sass';
 import data from './resignation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const contentElement = document.getElementById('content');
+  const inputElement = document.getElementById('input');
+  ['keydown', 'change'].forEach((event) => {
+    inputElement.addEventListener(event, (e) => {
+      processData(e.target);
+    })
+  })
+});
+
+const processData = (inputElement) => {
+  //const contentElement = document.getElementById('content');
   const outputElement = document.getElementById('output');
+
+  const data = inputElement.value;
 
   // get data and split into words by space
   let processedData = data.split(' ');
@@ -63,6 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // console.log(filtered);
 
-})
+}
 
 
