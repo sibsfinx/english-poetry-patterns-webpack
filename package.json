@@ -47,7 +47,7 @@
     "html-webpack-plugin": "^4.2.0",
     "jquery": "3.4.1",
     "jquery.js": "^0.0.2-security",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.3",
     "object-assign": "4.1.0",
     "object-keys": "^1.1.1",
     "postcss-loader": "^3.0.0",
